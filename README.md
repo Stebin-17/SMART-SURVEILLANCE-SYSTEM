@@ -220,17 +220,16 @@ The output of the overall project is shown below:
 
 LINK TO THE VIDEO: [CLICK HERE](https://drive.google.com/file/d/1zzUkAcLcVIH6JYgDPdk0VfVN2g1aBnaD/view?usp=sharing)
   
-  
+ # 
  
-  <h3>CONCLUSION:</h3>
+  <h2>CONCLUSION:</h2>
   
   In conclusion, the development of a Smart Surveillance System using Arducam, WizFi360, YOLOv5, and Telegram Bot has shown tremendous potential in the field of security and surveillance. By integrating these technologies, the system can effectively detect and alert users of any person's presence in real-time, thereby reducing the likelihood of criminal activity.
 
 The Arducam and WizFi360 combination provided reliable and stable image capture and transmission, while YOLOv5 proved to be an accurate and efficient object detection model. Additionally, the integration of Telegram Bot allowed for quick and easy notification of the detected person's presence, making the system highly responsive to any potential security threats.Overall, the Smart Surveillance System's successful development underscores the importance of leveraging advanced technologies to enhance public safety and security. 
 
    
-
-
+#
 
 
 
