@@ -158,7 +158,7 @@ This object of the WiFiClient class is used to establish a connection with the s
 <h3>2. SETTING UP THE TELEGRAM-API</h3>
 
 - Open Telegram and search for the ```BotFather``` user.
-- Start a conversation with "BotFather" and type ```/newbot```.
+- Start a conversation with ```BotFather``` and type ```/newbot```.
 - Follow the prompts to give your bot a name and username.
 - Once you've created your bot, ```BotFather``` will send you a message containing your bot's token. The token is a long string of characters that uniquely identifies your bot and is required to authenticate API requests.
 - Save your bot's token in a secure place, as you will need to use it to interact with the Telegram Bot API.
