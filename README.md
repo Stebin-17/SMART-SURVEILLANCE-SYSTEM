@@ -89,7 +89,7 @@ Once a notification is received on the Telegram channel, appropriate action can 
 
 ## **4. ROADBLOCKS:**
 
-**1. SETTING UP ARDUCAM WITH WizFi360 BOARD**
+<h3>1. SETTING UP ARDUCAM WITH WizFi360 BOARD</h3>
 
 Below shows the overall setup for the WizFi360 with the Arducam. The pin configuration is also given below:
 
@@ -120,7 +120,7 @@ The ArduCam provides document and source codes [SPI Camera for Raspberry Pi Pico
 6. SCL  --> GPIO 9
 ```
 
-<h2>Code Explaination</h2>
+<h4>Code Explaination</h4>
 
 > WizFi_Flask Server/WizFi_CamPost.ino
 
@@ -137,6 +137,7 @@ This function initializes the ArduCAM module by setting the CS pin as an output 
 This function captures an image with the ArduCAM module and stores the image data in the img_buf array. It then calls the http_postData() function to send the image data to the server.
 
 - ```http_postData(byte *buf, uint32_t length)```:
+
 This function sends the image data to a server using the Wi-Fi module. It first checks if the client is connected to the server, and if not, it tries to reconnect several times before giving up. It then sends an HTTP POST request to the server with the image data as the payload. The payload includes the file name and content type of the image. Finally, it waits for a response from the server before closing the connection.
 
 - ```buffer_transfer(byte *bptr, size_t len)```:
@@ -144,6 +145,71 @@ This function sends a buffer of data to the server in multiple chunks of size ma
 
 - ```client```:
 This object of the WiFiClient class is used to establish a connection with the server and send/receive data.
+
+<h3>2. SETTING UP YOLO</h3>
+
+YOLOv5 (You Only Look Once version 5) is a state-of-the-art real-time object detection algorithm developed by Ultralytics. YOLOv5 builds upon the success of its predecessors by introducing a new model architecture and training process, resulting in significantly improved accuracy and speed. The architecture consists of a backbone network (CSPDarknet53), a neck network (SPP), and a head network (YOLOv5). The CSPDarknet53 network uses a novel cross-stage partial network to enhance information flow between layers, resulting in improved feature representation. The SPP network incorporates spatial pyramid pooling, which allows the network to better capture objects at different scales. The YOLOv5 head network uses anchor boxes and a classification and regression layer to detect and localize objects in an image. The training process of YOLOv5 uses a combination of multi-scale training, label smoothing, and focal loss to improve the model's performance. 
+
+<h4>STEPS:</h4>
+
+- Install Git: If you don't have Git installed on your system, download and install it from the official website: https://git-scm.com/downloads.
+
+- Clone the YOLOv5 repository: Open a terminal window and navigate to the directory where you want to store the YOLOv5 code. Then run the following command:
+
+```
+git clone https://github.com/ultralytics/yolov5.git
+```
+
+- Install dependencies: Navigate to the 'yolov5' directory and run the following command to install the dependencies required for YOLOv5:
+
+```
+pip install -r requirements.txt
+```
+
+- Download pre-trained weights: YOLOv5 requires pre-trained weights to perform object detection. You can download the weights from the official YOLOv5 website by running the following command:
+  
+```
+wget https://github.com/ultralytics/yolov5/releases/download/v5.0/yolov5s.pt
+```
+  
+
+- Test YOLOv5: You can test YOLOv5 by running the following command:
+
+```
+python detect.py --weights yolov5s.pt --img 640 --conf 0.4 --source 0
+```
+  
+  After running the above mentioned steps downliad the main.py program given in this github repository. It contains program for capturing the image from the Arducam , send them for detection to the Yolo model and finally if a person is detected in the image send an notification with the detected pic to the telegram API.
+  
+<h4>Code Explanation</h4>
+
+> main.py
+
+- This code is a Flask server application that takes an image in JPEG format as input and performs object detection using the YOLOv5 model. The detected objects are then classified, and if a person is detected in the image, a message is sent to a Telegram chat group along with the image.
+
+- The code first imports necessary libraries and initializes the Flask application. It then sets up an upload destination for the image file and initializes a Telegram bot using the token. The ```run``` function from the ```detect``` module of the YOLOv5 model is called to perform object detection. If a person is detected, a message is sent to the Telegram chat group along with the image.
+
+- In the ```upload``` function, the server checks if the incoming request is a ```POST``` request and the content type is an image in JPEG format. If so, it saves the image to a file and sets a flag indicating that object detection should be performed. A separate thread is then created to run the ```detect_person``` function, which calls the run function to perform object detection. If the detection identifies a person, the send_telegram_message function is called to send a message to the Telegram chat group.
+
+<h3>3. SETTING UP THE TELEGRAM-API</h3>
+
+- Open Telegram and search for the "BotFather" user.
+- Start a conversation with "BotFather" and type "/newbot".
+- Follow the prompts to give your bot a name and username.
+- Once you've created your bot, "BotFather" will send you a message containing your bot's token. The token is a long string of characters that uniquely identifies your bot and is required to authenticate API requests.
+- Save your bot's token in a secure place, as you will need to use it to interact with the Telegram Bot API.
+
+For more information click the [link](https://core.telegram.org/api/obtaining_api_id).
+
+
+  
+
+
+
+
+
+
+
 
 
 
