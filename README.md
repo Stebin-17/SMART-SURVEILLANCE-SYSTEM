@@ -85,6 +85,10 @@ If a person is detected in the image, the Flask server generates a notification 
 
 Once a notification is received on the Telegram channel, appropriate action can be taken, such as alerting security personnel or sounding an alarm.
 
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/114398468/226553276-6cbcf772-0ae2-4d82-8ddd-e6b8f798266c.jpg"  width="75%" />
+</p>
+
 #
 
 ## **4. ROADBLOCKS:**
