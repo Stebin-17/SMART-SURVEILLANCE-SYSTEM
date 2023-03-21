@@ -87,5 +87,68 @@ If a person is detected in the image, the Flask server generates a notification 
 Once a notification is received on the Telegram channel, appropriate action can be taken, such as alerting security personnel or sounding an alarm.
 
 
+## **4. ROADBLOCKS:**
+
+**1. SETTING UP ARDUCAM WITH WizFi360 BOARD**
+
+Below shows the overall setup for the WizFi360 with the Arducam. The pin configuration is also given below:
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/114398468/226533314-84c55a13-6cd5-4c4a-9656-a9510d5c1b19.jpg" width="50%" />
+</p>
+
+
+The WizFi360 is a compact and powerful Wi-Fi module that provides seamless connectivity to the Internet of Things (IoT) devices. It features a low-power ARM Cortex-M4 microcontroller and a high-performance Wi-Fi transceiver that supports IEEE 802.11 b/g/n protocols. With its built-in security features and easy-to-use software development kit, the WizFi360 is an ideal solution for creating smart and connected IoT applications.On the other hand, a PIR (Passive Infrared) sensor is a type of motion sensor that detects movement by sensing changes in infrared radiation levels. It is commonly used in security systems, automatic lighting, and other applications where motion detection is required. PIR sensors are called "passive" because they do not emit any energy themselves; instead, they detect the energy emitted by other objects, such as the human body.
+
+When combined, the WizFi360 and PIR sensor can create powerful and intelligent IoT applications that enable remote monitoring and control of motion detection systems. For example, a PIR sensor can detect movement in a room and send a signal to the WizFi360 module, which can then send a notification to a smartphone app or trigger an alarm. The WizFi360 can also be used to control the sensitivity and operating modes of the PIR sensor, making it a flexible and customizable solution for a wide range of IoT applications.
+
+
+<p align="center">
+  <img src="https://github.com/Stebin-17/Intelligent-Door-Access-System-with-Facial-Recognition-and-Voice-Control/blob/main/Door-Facial-System/Files/AruduCam-Mini-2MP-Plus-SPI-Camera-Module-Pin.jpg" width="75%" />
+</p>
+
+The ArduCam provides document and source codes [SPI Camera for Raspberry Pi Pico](https://www.arducam.com/docs/pico/arducam-camera-module-for-raspberry-pi-pico/spi-camera-for-raspberry-pi-pico) and it also uses SPI0. To avoid the confliction, this project uses SPI1 for the ArduCam OV2640 Module.ArduCam OV2640 Module requires CS, MOSI, MISO, SCLK pins for SPI connection, and SDA, SCL pins for I2C connection. This project modified the source code of ArduCam to use SPI1.
+
+**Pico pin configuration for ArduCam OV2640**
+
+```
+1. CS   --> GPIO 13
+2. MOSI --> GPIO 11
+3. MISO --> GPIO 12
+4. SCLK --> GPIO 10
+5. SDA  --> GPIO 8
+6. SCL  --> GPIO 9
+```
+
+<h2>Code Explaination</h2>
+
+> WizFi_Flask Server/WizFi_CamPost.ino
+
+- ```setup()```:
+This function is called once when the Arduino board is powered on or reset. It initializes the serial communication with a baud rate of 115200 and also initializes the ArduCAM module by calling the ArduCam_setup() function.
+
+- ```loop()```:
+This function is called repeatedly after the setup() function. It captures an image with the ArduCAM module, sends the image data to a server using the Wi-Fi module, and then waits for a period of time before repeating the process.
+
+- ```ArduCam_setup()```:
+This function initializes the ArduCAM module by setting the CS pin as an output and initializing the Wire library for I2C communication.
+
+- ```ArduCam_sendImg()```:
+This function captures an image with the ArduCAM module and stores the image data in the img_buf array. It then calls the http_postData() function to send the image data to the server.
+
+- ```http_postData(byte *buf, uint32_t length)```:
+This function sends the image data to a server using the Wi-Fi module. It first checks if the client is connected to the server, and if not, it tries to reconnect several times before giving up. It then sends an HTTP POST request to the server with the image data as the payload. The payload includes the file name and content type of the image. Finally, it waits for a response from the server before closing the connection.
+
+- ```buffer_transfer(byte *bptr, size_t len)```:
+This function sends a buffer of data to the server in multiple chunks of size max_transfer (1024 bytes in this code) to prevent buffer overflows.
+
+- ```client```:
+This object of the WiFiClient class is used to establish a connection with the server and send/receive data.
+
+
+
+
+
+
 
 
