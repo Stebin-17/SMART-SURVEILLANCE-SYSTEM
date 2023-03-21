@@ -15,9 +15,8 @@
 **6. ROADBLOCKS**   
 
 > - **SETTING UP ARDUCAM WITH WizFi360 BOARD**
-> - **SETTING UP YOLOV5**
 > - **TELEGRAM API CONNECTION**
-
+> - **SETTING UP YOLOV5**
 
 **7. OUTPUT**
 
@@ -86,6 +85,7 @@ If a person is detected in the image, the Flask server generates a notification 
 
 Once a notification is received on the Telegram channel, appropriate action can be taken, such as alerting security personnel or sounding an alarm.
 
+#
 
 ## **4. ROADBLOCKS:**
 
@@ -146,7 +146,22 @@ This function sends a buffer of data to the server in multiple chunks of size ma
 - ```client```:
 This object of the WiFiClient class is used to establish a connection with the server and send/receive data.
 
-<h3>2. SETTING UP YOLO</h3>
+#
+
+
+<h3>2. SETTING UP THE TELEGRAM-API</h3>
+
+- Open Telegram and search for the ```BotFather``` user.
+- Start a conversation with "BotFather" and type ```/newbot```.
+- Follow the prompts to give your bot a name and username.
+- Once you've created your bot, ```BotFather``` will send you a message containing your bot's token. The token is a long string of characters that uniquely identifies your bot and is required to authenticate API requests.
+- Save your bot's token in a secure place, as you will need to use it to interact with the Telegram Bot API.
+
+For more information click the [link](https://core.telegram.org/api/obtaining_api_id).
+
+#
+
+<h3>3. SETTING UP YOLO</h3>
 
 YOLOv5 (You Only Look Once version 5) is a state-of-the-art real-time object detection algorithm developed by Ultralytics. YOLOv5 builds upon the success of its predecessors by introducing a new model architecture and training process, resulting in significantly improved accuracy and speed. The architecture consists of a backbone network (CSPDarknet53), a neck network (SPP), and a head network (YOLOv5). The CSPDarknet53 network uses a novel cross-stage partial network to enhance information flow between layers, resulting in improved feature representation. The SPP network incorporates spatial pyramid pooling, which allows the network to better capture objects at different scales. The YOLOv5 head network uses anchor boxes and a classification and regression layer to detect and localize objects in an image. The training process of YOLOv5 uses a combination of multi-scale training, label smoothing, and focal loss to improve the model's performance. 
 
@@ -181,7 +196,7 @@ python detect.py --weights yolov5s.pt --img 640 --conf 0.4 --source 0
   
   After running the above mentioned steps downliad the main.py program given in this github repository. It contains program for capturing the image from the Arducam , send them for detection to the Yolo model and finally if a person is detected in the image send an notification with the detected pic to the telegram API.
   
-<h4>Code Explanation</h4>
+<h4>Code Explaination</h4>
 
 > main.py
 
@@ -191,18 +206,31 @@ python detect.py --weights yolov5s.pt --img 640 --conf 0.4 --source 0
 
 - In the ```upload``` function, the server checks if the incoming request is a ```POST``` request and the content type is an image in JPEG format. If so, it saves the image to a file and sets a flag indicating that object detection should be performed. A separate thread is then created to run the ```detect_person``` function, which calls the run function to perform object detection. If the detection identifies a person, the send_telegram_message function is called to send a message to the Telegram chat group.
 
-<h3>3. SETTING UP THE TELEGRAM-API</h3>
+#
 
-- Open Telegram and search for the "BotFather" user.
-- Start a conversation with "BotFather" and type "/newbot".
-- Follow the prompts to give your bot a name and username.
-- Once you've created your bot, "BotFather" will send you a message containing your bot's token. The token is a long string of characters that uniquely identifies your bot and is required to authenticate API requests.
-- Save your bot's token in a secure place, as you will need to use it to interact with the Telegram Bot API.
+<h2>OUTPUT</h2>
 
-For more information click the [link](https://core.telegram.org/api/obtaining_api_id).
+The output of the overall project is shown below:
 
-
+<div align="center">
+  <video src="https://user-images.githubusercontent.com/114398468/226541594-e7be47c8-ecca-4bcc-81d3-c18864718cd3.mp4"/>
+</div>
   
+ <div>
+
+LINK TO THE VIDEO: [CLICK HERE](https://drive.google.com/file/d/1zzUkAcLcVIH6JYgDPdk0VfVN2g1aBnaD/view?usp=sharing)
+  
+  
+ 
+  <h3>CONCLUSION:</h3>
+  
+  In conclusion, the development of a Smart Surveillance System using Arducam, WizFi360, YOLOv5, and Telegram Bot has shown tremendous potential in the field of security and surveillance. By integrating these technologies, the system can effectively detect and alert users of any person's presence in real-time, thereby reducing the likelihood of criminal activity.
+
+The Arducam and WizFi360 combination provided reliable and stable image capture and transmission, while YOLOv5 proved to be an accurate and efficient object detection model. Additionally, the integration of Telegram Bot allowed for quick and easy notification of the detected person's presence, making the system highly responsive to any potential security threats.Overall, the Smart Surveillance System's successful development underscores the importance of leveraging advanced technologies to enhance public safety and security. 
+
+   
+
+
 
 
 
