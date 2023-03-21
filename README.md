@@ -57,7 +57,7 @@ The Arducam Mini 2MP Plus is a small camera module with a resolution of 2 megapi
 
 #
 
-## **4. WORK FLOW:**
+## **5. WORK FLOW:**
 
 > - Setup the Hardware Components
 
@@ -93,7 +93,7 @@ Once a notification is received on the Telegram channel, appropriate action can 
 
 #
 
-## **4. ROADBLOCKS:**
+## **6. ROADBLOCKS:**
 
 <h3>1. SETTING UP ARDUCAM WITH WizFi360 BOARD</h3>
 
@@ -214,7 +214,7 @@ python detect.py --weights yolov5s.pt --img 640 --conf 0.4 --source 0
 
 #
 
-<h2>OUTPUT</h2>
+<h2>7. OUTPUT</h2>
 
 The output of the overall project is shown below:
 
@@ -228,7 +228,7 @@ LINK TO THE VIDEO: [CLICK HERE](https://drive.google.com/file/d/1zzUkAcLcVIH6JYg
   
  # 
  
-  <h2>CONCLUSION:</h2>
+  <h2>8. CONCLUSION:</h2>
   
   In conclusion, the development of a Smart Surveillance System using Arducam, WizFi360, YOLOv5, and Telegram Bot has shown tremendous potential in the field of security and surveillance. By integrating these technologies, the system can effectively detect and alert users of any person's presence in real-time, thereby reducing the likelihood of criminal activity.
 
@@ -238,7 +238,7 @@ The Arducam and WizFi360 combination provided reliable and stable image capture 
 #
 
 
-<h2>REFERENCES</h2>
+<h2>9. REFERENCES</h2>
 
 - https://www.hackster.io/innovation4x/webcamserver-arducam-ov2640-module-wiznet-evb-pico-73ceae
 - https://api.telegram.org/bot6031744449:AAFoNG8OKbcDCCT2saMyVj6N5r2WoNnFeMk/getUpdates
