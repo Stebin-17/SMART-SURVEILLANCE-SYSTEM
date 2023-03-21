@@ -57,31 +57,31 @@ The Arducam Mini 2MP Plus is a small camera module with a resolution of 2 megapi
 
 ## **4. WORK FLOW:**
 
-- Setup the Hardware Components
+> - Setup the Hardware Components
 
 The first step is to set up the hardware components. Connect the Arducam Mini 2MP Plus camera module to the WizFi360 board using the SPI interface. Connect the PIR sensor to one of the digital pins of the WizFi360 board. Connect the power source to the WizFi360 board.
 
-- Configure the WizFi360 Board
+> - Configure the WizFi360 Board
 
 Configure the WizFi360 board to connect to the WiFi network. Program the board using the Arduino IDE to communicate with the Arducam camera module and PIR sensor. Set up the board to capture an image when the PIR sensor detects motion.
 
-- Capture an Image
+> - Capture an Image
 
 When the PIR sensor detects motion, the WizFi360 board triggers the Arducam camera module to capture an image. The captured image is saved in the memory of the WizFi360 board.
 
-- Send the Image to Flask Server
+> - Send the Image to Flask Server
 
 The WizFi360 board is programmed to send the captured image to a Flask server using an HTTP POST request. The Flask server is running in the background and is waiting to receive the image.
 
-- Process the Image Using YOLOv5
+> - Process the Image Using YOLOv5
 
 Once the Flask server receives the image, it processes the image using the YOLOv5 algorithm. YOLOv5 is an object detection algorithm that can detect objects in real-time with high accuracy. The Flask server is programmed to run the YOLOv5 algorithm on the captured image to detect whether there is a person in the image.
 
-- Send a Notification to Telegram
+> - Send a Notification to Telegram
 
 If a person is detected in the image, the Flask server generates a notification and sends it to a Telegram channel. The notification includes a message indicating that someone is in a restricted area, along with the detected image.
 
-- Take Action
+> - Take Action
 
 Once a notification is received on the Telegram channel, appropriate action can be taken, such as alerting security personnel or sounding an alarm.
 
