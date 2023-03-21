@@ -12,9 +12,16 @@
 
 **5. WORKFLOW**     
 
-**6. OUTPUT**
+**6. ROADBLOCKS**   
 
-**7. CONCLUSION**
+> - **SETTING UP ARDUCAM WITH WizFi360 BOARD**
+> - **SETTING UP YOLOV5**
+> - **TELEGRAM API CONNECTION**
+
+
+**7. OUTPUT**
+
+**8. CONCLUSION**
 
 #
 
