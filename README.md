@@ -22,6 +22,8 @@
 
 **8. CONCLUSION**
 
+**8. REFERENCES**
+
 #
 
 ## **1. INTRODUCTION:**
@@ -234,6 +236,23 @@ The Arducam and WizFi360 combination provided reliable and stable image capture 
 
    
 #
+
+
+<h2>REFERENCES</h2>
+
+- https://www.hackster.io/innovation4x/webcamserver-arducam-ov2640-module-wiznet-evb-pico-73ceae
+- https://api.telegram.org/bot6031744449:AAFoNG8OKbcDCCT2saMyVj6N5r2WoNnFeMk/getUpdates
+- https://www.geeksforgeeks.org/send-message-to-telegram-user-using-python/
+- https://circuitmaker.com
+- https://www.wiznet.io/product-item/wizfi360/
+- https://www.arducam.com/product/arducam-2mp-spi-camera-b0067-arduino/
+- [https://www.hackster.io/innovation4x/early-fire-detection-using-ai-dd27bf](https://www.kaggle.com/c/dogs-vs-cats)
+- https://ultralytics.com/yolov5
+- https://github.com/ultralytics/yolov5/wiki/Tips-for-Best-Training-Results
+- https://github.com/ultralytics/yolov5.git
+
+
+
 
 
 
