@@ -45,7 +45,7 @@ The Arducam Mini 2MP Plus is a small camera module with a resolution of 2 megapi
 
 ## **3. SOFTWARE AND SERVICES USED:**
 
-- [openCV](https://opencv.org/)
+- [YOLOv5](https://ultralytics.com/yolov5)
 - [AURDINO IDE](https://www.arduino.cc/)
 - [FLASK-ASK](https://github.com/johnwheeler/flask-ask)
 
